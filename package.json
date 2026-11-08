@@ -1,0 +1,35 @@
+{
+  "name": "writeaid",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A gamified handwriting coach for kids: write in your notebook, the webcam watches, the AI coach gives tips and XP.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "arctic": "3.7.0",
+    "bcryptjs": "3.0.3",
+    "better-sqlite3": "12.11.1",
+    "canvas-confetti": "1.9.4",
+    "jose": "6.2.15",
+    "next": "16.4.5",
+    "openai": "7.43.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "resend": "6.37.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.1.17",
+    "@types/better-sqlite3": "7.6.13",
+    "@types/canvas-confetti": "1.9.0",
+    "@types/node": "22.19.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "tailwindcss": "4.1.17",
+    "typescript": "5.9.3"
+  }
+}

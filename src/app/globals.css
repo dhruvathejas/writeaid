@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-fredoka), ui-rounded, "Trebuchet MS", system-ui, sans-serif;
+  --font-hand: var(--font-patrick), "Comic Sans MS", cursive;
+
+  --color-ink: #1e1b4b;
+  --color-grape: #8b5cf6;
+  --color-grape-dark: #6d28d9;
+  --color-bubblegum: #ec4899;
+  --color-tangerine: #f97316;
+  --color-sunny: #facc15;
+  --color-mint: #10b981;
+  --color-sky: #0ea5e9;
+  --color-paper: #fffdf6;
+
+  --animate-wiggle: wiggle 0.6s ease-in-out infinite;
+  --animate-pop: pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  --animate-float: float 4s ease-in-out infinite;
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-8deg); }
+    50% { transform: rotate(8deg); }
+  }
+  @keyframes pop {
+    0% { transform: scale(0.4); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  color: var(--color-ink);
+  background-color: #fdf4ff;
+  background-image:
+    radial-gradient(circle at 8% 12%, #fde68a 0 90px, transparent 91px),
+    radial-gradient(circle at 92% 18%, #bae6fd 0 120px, transparent 121px),
+    radial-gradient(circle at 85% 88%, #fbcfe8 0 140px, transparent 141px),
+    radial-gradient(circle at 12% 82%, #bbf7d0 0 110px, transparent 111px),
+    linear-gradient(160deg, #fdf4ff 0%, #ede9fe 50%, #e0f2fe 100%);
+  background-attachment: fixed;
+}
+
+@layer components {
+  /* Chunky "toy" card */
+  .card {
+    @apply rounded-[28px] border-4 border-ink bg-white p-5;
+    box-shadow: 6px 6px 0 0 var(--color-ink);
+  }
+
+  /* Chunky 3D button */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-4 border-ink px-6 py-3 text-lg font-bold
+      transition-transform select-none disabled:cursor-not-allowed disabled:opacity-60;
+    box-shadow: 0 5px 0 0 var(--color-ink);
+  }
+  .btn:not(:disabled):hover {
+    transform: translateY(-2px);
+  }
+  .btn:not(:disabled):active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 0 var(--color-ink);
+  }
+  .btn-grape { @apply bg-grape text-white; }
+  .btn-pink { @apply bg-bubblegum text-white; }
+  .btn-mint { @apply bg-mint text-white; }
+  .btn-sunny { @apply bg-sunny text-ink; }
+  .btn-white { @apply bg-white text-ink; }
+
+  .input {
+    @apply w-full rounded-2xl border-4 border-ink bg-paper px-4 py-3 text-lg outline-none
+      focus:border-grape focus:ring-4 focus:ring-grape/25;
+  }
+
+  .label {
+    @apply mb-1 block text-base font-semibold;
+  }
+}
+
+/* Notebook-paper lines behind the challenge text */
+.ruled {
+  background-image: repeating-linear-gradient(to bottom, transparent 0 46px, #93c5fd 46px 48px);
+  background-position: 0 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
